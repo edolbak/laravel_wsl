@@ -10,7 +10,8 @@ class FakeUserController extends UserController
 {
     public function index()
     {
-        $p=1;
+        $g=1;
+
         // TODO-vardump VAR_DUMP
         die(var_dump('fakeindex'));
 
@@ -20,6 +21,8 @@ class FakeUserController extends UserController
     {
         // TODO-vardump VAR_DUMP
         die(var_dump('fake test1'));
+
+
     }
 
 }
