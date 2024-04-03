@@ -16,7 +16,6 @@ class UserController extends Controller
 
     public function test1()
     {
-        // TODO-vardump VAR_DUMP
         die(var_dump('test1'));
 
     }
