@@ -12,6 +12,7 @@ class FakeUserController extends UserController
     {
         $vvv =8888;
         $kkk=5555;
+        $rrr=22222;
         // TODO-vardump VAR_DUMP
         die(var_dump('fakeindex'));
 
