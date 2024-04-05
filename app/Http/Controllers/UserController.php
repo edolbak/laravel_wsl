@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function test1()
     {
-        $b=1;
+        $yyy=1;
         die(var_dump('test1'));
     }
 }
