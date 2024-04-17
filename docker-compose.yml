@@ -25,7 +25,7 @@ services:
         image: laravel-in-kubernetes/web_server
         # Expose our application port (80) through a port on our local machine (8080)
         ports:
-            - '8080:80'
+            - '8085:80'
         environment:
             # We need to pass in the new FPM hst as the name of the fpm container on port 9000
             FPM_HOST: "laravel.fpm:9000"
@@ -61,7 +61,7 @@ services:
             # Add node_modeules as singular volume.
             # This prevents our local node_modules from being propagated into the container,
             # So the node_modules can be compiled for each of the different architectures (Local, Image)
-            - '/opt/app/node_modules/'
+            - '/data/devs/node_modules/'
         networks:
             - laravel-in-kubernetes
 
@@ -86,9 +86,12 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
             - 'sail-mysql:/var/lib/mysql'
-            - './docker/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
         networks:
             - laravel-in-kubernetes
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            retries: 3
+            timeout: 5s
 
 
 networks:
