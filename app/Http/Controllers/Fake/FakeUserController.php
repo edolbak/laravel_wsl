@@ -14,9 +14,6 @@ class FakeUserController extends UserController
         $rrr=22222;
         // TODO-vardump VAR_DUMP
         die(var_dump('fakeindex'));
-
-
-
     }
 
     public function test1(Request $request)
